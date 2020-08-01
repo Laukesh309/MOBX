@@ -3,10 +3,17 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import {observable} from  "mobx"
+import {Provider} from "mobx-react"
+const appState =observable({
+  count:0
+})
 
 ReactDOM.render(
   <React.StrictMode>
+    <Provider appState={appState}>
     <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
